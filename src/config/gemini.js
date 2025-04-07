@@ -2,11 +2,11 @@
 
 import {
   GoogleGenerativeAI,
-  HarmCategory,
-  HarmBlockThreshold,
+  // HarmCategory,
+  // HarmBlockThreshold,
 } from "@google/generative-ai";
 
-const apiKey = "AIzaSyBNZMzQ_1RfBO-oTEYxTtJ1-z8j0q0WjBE";
+const apiKey = "AIzaSyBuiUol9joY9F_ezunW9mu5yKkh4y92dbE";
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
@@ -21,11 +21,11 @@ const generationConfig = {
   responseMimeType: "text/plain",
 };
 
-async function run(prompt) { // this run function will be in use everywhere
+async function run(prompt) {
+  // this run function will be in use everywhere
   const chatSession = model.startChat({
     generationConfig,
-    history: [
-    ],
+    history: [],
   });
 
   const result = await chatSession.sendMessage(prompt);
@@ -34,5 +34,3 @@ async function run(prompt) { // this run function will be in use everywhere
 }
 
 export default run;
-
-
